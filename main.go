@@ -31,6 +31,12 @@ func makeMultiplier(factor int) func(int) int {
 		return (x * factor)
 	}
 }
+func forEach(numbers []int, callback func(int)) {
+	for _, num := range numbers {
+		callback(num)
+	}
+}
+
 func main() {
 	//Exercise 1.1 basic anonymous fn direct call
 	func(x, y int) {
@@ -67,5 +73,13 @@ func main() {
 	times2 := makeMultiplier(2)
 	fmt.Println(times2(5))
 	fmt.Println(times2(10))
+
+	//Exercise 4.1
+
+	numbers := []int{1, 2, 3, 4, 5}
+	forEach(numbers, func(num int) { fmt.Println(num) })
+	sum := 0
+	forEach(numbers, func(num int) { sum += num })
+	fmt.Println(sum)
 
 }
