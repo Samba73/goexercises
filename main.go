@@ -37,6 +37,12 @@ func forEach(numbers []int, callback func(int)) {
 	}
 }
 
+func makeLogger(prefix string) func(string) {
+	return func(msg string) {
+		fmt.Printf("[%v] %s\n", prefix, msg)
+	}
+}
+
 func main() {
 	//Exercise 1.1 basic anonymous fn direct call
 	func(x, y int) {
@@ -81,5 +87,13 @@ func main() {
 	sum := 0
 	forEach(numbers, func(num int) { sum += num })
 	fmt.Println(sum)
+
+	//Exercise 4.2
+
+	dbLogger := makeLogger("DB")
+	dbLogger("Connection lost")
+
+	appLogger := makeLogger("APP")
+	appLogger("Started Successfully")
 
 }
