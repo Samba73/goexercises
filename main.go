@@ -25,6 +25,12 @@ func incrementValue() func(int) int {
 		return sum
 	}
 }
+
+func makeMultiplier(factor int) func(int) int {
+	return func(x int) int {
+		return (x * factor)
+	}
+}
 func main() {
 	//Exercise 1.1 basic anonymous fn direct call
 	func(x, y int) {
@@ -56,5 +62,10 @@ func main() {
 	fmt.Println(adder(5))
 	fmt.Println(adder(3))
 	fmt.Println(adder(10))
+
+	//Exercise 3.2 anonymous + closure
+	times2 := makeMultiplier(2)
+	fmt.Println(times2(5))
+	fmt.Println(times2(10))
 
 }
