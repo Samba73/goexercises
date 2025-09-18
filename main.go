@@ -22,7 +22,7 @@ func main() {
 	}
 	fmt.Println(square(4))
 
-	//Exercise 1.3 basic closure
+	//Exercise 2.1 basic closure
 
 	runCounter := makeCounter()
 	fmt.Println(runCounter())
