@@ -10,6 +10,14 @@ func makeCounter() func() int {
 	}
 }
 
+func makeCounter2(startValue int) func() int {
+	count := startValue
+	return func() int {
+		count++
+		return count
+	}
+}
+
 func main() {
 	//Exercise 1.1 basic anonymous fn direct call
 	func(x, y int) {
@@ -28,4 +36,10 @@ func main() {
 	fmt.Println(runCounter())
 	fmt.Println(runCounter())
 	fmt.Println(runCounter())
+
+	//Exercise 2.2 basic closure
+	runCounter2 := makeCounter2(10)
+	fmt.Println(runCounter2())
+	fmt.Println(runCounter2())
+	fmt.Println(runCounter2())
 }
