@@ -18,6 +18,13 @@ func makeCounter2(startValue int) func() int {
 	}
 }
 
+func incrementValue() func(int) int {
+	sum := 0
+	return func(val int) int {
+		sum += val
+		return sum
+	}
+}
 func main() {
 	//Exercise 1.1 basic anonymous fn direct call
 	func(x, y int) {
@@ -42,4 +49,12 @@ func main() {
 	fmt.Println(runCounter2())
 	fmt.Println(runCounter2())
 	fmt.Println(runCounter2())
+
+	//Exercise 3.1 basic anonymous + closure
+
+	adder := incrementValue()
+	fmt.Println(adder(5))
+	fmt.Println(adder(3))
+	fmt.Println(adder(10))
+
 }
